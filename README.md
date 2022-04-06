@@ -8,6 +8,12 @@ This is my submission. I will be updating this as I do more work.
 
 [Jaccard Index](https://en.wikipedia.org/wiki/Jaccard_index)
 
-[Sørensen–Dice coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
+[Sørensen–Dice Coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
 
-[Tversky index](https://en.wikipedia.org/wiki/Tversky_index)
+[Tversky Index](https://en.wikipedia.org/wiki/Tversky_index)
+
+[Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+
+[Text Vectorization](https://www.deepset.ai/blog/what-is-text-vectorization-in-nlp)
+
+[BM25 Algorithm](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables)
