@@ -1,6 +1,7 @@
 import submission as s
 
 # ----- Test Cases -----
+
 # Test using the given example query.
 def test_given_example():
     corpus = s.read_file('../lepanto.txt')
@@ -34,6 +35,7 @@ def test_text_not_in_corpus():
         answer = bm25.get_top_n(tokenized_query, corpus, n=1).pop()
     
     assert answer == "No results found."
+    
 # ----- End of Test Cases -----
 
 if __name__ == "__main__":

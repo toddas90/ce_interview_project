@@ -7,18 +7,26 @@
 import sys
 from rank_bm25 import BM25L
 
-# read a text file into a list of strings.
 def read_file(filename):
+    """Read the file and return a list of lines.
+    
+    Arguments:
+    filename: The name of the file to read.
+    """
     with open(filename, 'r') as f:
         return f.read().splitlines()
     
-# get user input for the query.
 def get_query():
+    """Get the query from the user."""
     query = input("Enter your query: ")
     return query
 
-# Check if any of the scores are non-zero.
 def validate_scores(scores):
+    """Check if any of the scores are non-zero.
+    
+    Arguments:
+    score: A list of scores.
+    """
     return any(score != 0 for score in scores)
 
 if __name__ == "__main__":
