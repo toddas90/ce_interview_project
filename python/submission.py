@@ -1,19 +1,3 @@
-# I went with a count-based approach because I thought that adding in meaning
-# would result in some false positives. The "Bag of Words" approach seemed nice
-# and easy, but it looked like they had a few shortcomings.
-
-# The reason that I decided to not go with the IDF approach is because I
-# thought that it would struggle with short documents. I wanted this example
-# to work on more than one document.
-
-# The reason that I went with a BM25 formula is because it seemed like
-# the best way to tackle a problem like this. From my limited research,
-# it seems like this formula is used by search engines to rank documents.
-
-# I decided to use the BM25L formula to rank the lines because
-# it addresses the problem of document length bias unlike the standard
-# BM25 formula.
-
 # Rather than reinventing the wheel, I decided to use a well-built library
 # to handle the specific implementation.
 # The library can be found here: https://pypi.org/project/rank-bm25/
@@ -28,7 +12,6 @@ def read_file(filename):
     with open(filename, 'r') as f:
         return f.read().splitlines()
     
-    
 # get user input for the query.
 def get_query():
     query = input("Enter your query: ")
@@ -37,7 +20,6 @@ def get_query():
 # Check if any of the scores are non-zero.
 def validate_scores(scores):
     return any(score != 0 for score in scores)
-
 
 if __name__ == "__main__":
     # debug flag for seeing some extra details.
@@ -48,6 +30,7 @@ if __name__ == "__main__":
         debug = False
     
     # Read the file in and parse the words.
+    # Can easily make this a command line argument.
     corpus = read_file('../lepanto.txt')
     tokenized_corpus = [line.split(" ") for line in corpus]
     
@@ -68,15 +51,13 @@ if __name__ == "__main__":
     
     answer = bm25.get_top_n(tokenized_query, corpus, n=1).pop()
     
-    print(answer)
+    print('\n' + answer)
     
-    # If the debug flag is set, print out the scores.
+    # If the debug flag is set, print out the scores and the top 5 results.
     if debug:
         print('\n')
         answer = bm25.get_top_n(tokenized_query, corpus, n=5)
         for i in answer:
             print(i)
-        print('\n')
-        doc_scores = bm25.get_scores(tokenized_query)
-        print(doc_scores)
+        print(scores)
         
