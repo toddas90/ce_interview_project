@@ -1,11 +1,53 @@
 ## CE Interview Project Submission
-This is my submission. I will be updating this as I do more work.
+This is my submission for the CE Intern position.
+
+I would like to preface this by saying that I spent more time researching the problem
+than actually coding. I'd never been given a problem like this before, so I wasn't
+even sure what this type of problenm was called.
+
+I went with a count-based approach because I thought that adding in meaning
+would result in some false positives. The "Bag of Words" approach seemed nice
+and easy, but it looked like they had a few shortcomings.
+
+The reason that I decided to not go with the IDF approach is because I
+thought that it would struggle with short documents. I wanted this example
+to work on more than one document.
+
+The reason that I went with a BM25 formula is because it seemed like
+the best way to tackle a problem like this. From my limited research,
+it seems like this formula is used by search engines to rank documents.
+This [article](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) was really helpful in deciding which way to go.
+
+I decided to use the [BM25L](http://www.cs.otago.ac.nz/homepages/andrew/papers/2014-2.pdf) formula to rank the lines because
+it addresses the problem of document length bias unlike the standard
+BM25 formula.
 
 ## Dependencies
-[Rank-BM25](https://pypi.org/project/rank-bm25/)
+The library I used for implementing the algorithm was [Rank-BM25](https://pypi.org/project/rank-bm25/)
+
+To install it, run:
 
 ```
 pip install --user rank_bm25
+```
+
+## Running
+To run the script, you first need to be in the python directory:
+
+```
+cd python
+```
+
+Then you can run it with:
+
+```
+python submission.py
+```
+
+If you would like debugging information, you can run it with the debug flag
+
+```
+python submission.py --debug
 ```
 
 ## Research Used
